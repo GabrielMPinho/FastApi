@@ -59,6 +59,16 @@ def lead_time():
         "periodo": "Maio/2026"
     }
 
+@app.get("/producao/resumo")
+def resumo():
+    return  {
+        "unidade": "Fabrica SP",
+        "volume_produzido": 15420,
+        "volume_refugado": 320,
+        "eficiencia_percentual": 97.92, 
+        "periodo": "Maio/2026"
+    }
+
 
 
 
