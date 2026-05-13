@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse # Entregar o html para o navegador
+from fastapi.staticfiles import StaticFiles # Entrega outros arquivos 
 
 
 app = FastAPI()
+app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend") # Entrega arquivos css e js da pasta frontend. É possível acessar eles na url /frontend/nome_arquivo 
 
 @app.get("/") # Na url padrão
-def home(): # A função home entrega o arquivo html com o path x
+def home(): # A função home entrega o arquivo html com o path padrão
     return FileResponse("./frontend/index.html")
 
 @app.get("/status")
