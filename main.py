@@ -1,14 +1,12 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse # Entregar o html para o navegador
-from fastapi.staticfiles import StaticFiles
 
 
 app = FastAPI()
-app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
 
-@app.get("/")
-def home():
-    return FileResponse("frontend/index.html")
+@app.get("/") # Na url padrão
+def home(): # A função home entrega o arquivo html com o path x
+    return FileResponse("./frontend/index.html")
 
 @app.get("/status")
 def status():
@@ -50,7 +48,14 @@ def lista_clientes():
         },
     ]
 
-
+@app.get("/logistica/lead-time")
+def lead_time():
+    return {
+        "rota": "SP-RJ",
+        "lead_time_medio_dias": 3.5,
+        "entregas_realizadas": 84,
+        "periodo": "Maio/2026"
+    }
 
 
 
