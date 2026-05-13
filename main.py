@@ -60,7 +60,7 @@ def lead_time():
     }
 
 @app.get("/producao/resumo")
-def resumo():
+def prod_resumo():
     return  {
         "unidade": "Fabrica SP",
         "volume_produzido": 15420,
@@ -69,7 +69,15 @@ def resumo():
         "periodo": "Maio/2026"
     }
 
-
+@app.get("/financeiro/resumo")
+def finan_resumo():
+    return  {
+        "receita_total": 250000.00,
+        "despesas_total": 175000.00,
+        "lucro_liquido": 75000.00,
+        "margem_percentual": 30.0, 
+        "periodo": "Maio/2026"
+    }
 
 
 
