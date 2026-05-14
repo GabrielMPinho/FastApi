@@ -1,15 +1,20 @@
-const botao = document.getElementById("atualizar");
-const resultado = document.getElementById("leads-tabela");
-botao.addEventListener('click', async () => {
+const botao_atualizar = document.getElementById("atualizar");
+const tabela = document.getElementById("leads-tabela");
+const botao_adicionar = document.getElementById("cadastro");
+const nome_input = document.getElementById("nome");
+const origem_input = document.getElementById("origem");
+const score_input = document.getElementById("score");
+
+botao_atualizar.addEventListener('click', async () => {
     const resposta = await fetch("/leads");
     const dados = await resposta.json();
-    resultado.innerHTML = "";
+    tabela.innerHTML = "";
     if (dados.leads.length === 0) {
-        resultado.innerHTML = '<tr><td colspan="4" class="empty-row">Nenhum lead cadastrado ainda.</td></tr>';
+        tabela.innerHTML = '<tr><td colspan="4" class="empty-row">Nenhum lead cadastrado ainda.</td></tr>';
         return;
     }
     dados.leads.forEach((lead) => {
-        resultado.innerHTML += `
+        tabela.innerHTML += `
             <tr>
                 <td>${lead.nome}</td>
                 <td>${lead.origem}</td>
@@ -20,3 +25,13 @@ botao.addEventListener('click', async () => {
     });
 });
 
+botao_adicionar.addEventListener('click', async () => {
+    const nome = nome_input.value;
+    const origem = origem_input.value;
+    const score = score_input.value;
+
+
+    nome_input.innerHTML = "";
+    origem_input.innerHTML = "";
+    score_input.innerHTML = "";
+});
