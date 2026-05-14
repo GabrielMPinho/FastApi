@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELETE Lab - FastAPI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <p class="eyebrow">DELETE</p>
+            <h1>Remocao controlada</h1>
+            <p>Use esta tela para praticar exclusao por identificador.</p>
+        </div>
+        <span class="badge">Path parameter</span>
+    </header>
+
+    <main>
+        <section class="panel danger">
+            <h2>Excluir lead</h2>
+            <form>
+                <label>
+                    Lead ID
+                    <input type="number" name="lead_id" placeholder="1042">
+                </label>
+
+                <label class="check">
+                    <input type="checkbox" name="confirmacao">
+                    Confirmo que desejo excluir este registro
+                </label>
+
+                <button type="button">Excluir lead</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Endpoint esperado</h2>
+            <pre>DELETE /leads/{lead_id}</pre>
+        </section>
+
+        <section class="panel">
+            <h2>Resposta da API</h2>
+            <div class="empty-state">A resposta de exclusao aparecerá aqui.</div>
+        </section>
+    </main>
+</body>
+</html>

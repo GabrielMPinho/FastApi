@@ -1,0 +1,150 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f8fb;
+    color: #172033;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #12312b;
+    color: white;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+main {
+    flex: 1;
+    min-height: 0;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.panel {
+    background: white;
+    border: 1px solid #d7dee8;
+    border-radius: 8px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    color: #8ee0c4;
+    font-weight: 700;
+}
+
+.badge {
+    border: 1px solid #8ee0c4;
+    border-radius: 999px;
+    padding: 8px 12px;
+    color: #bdf4df;
+}
+
+form {
+    display: grid;
+    gap: 16px;
+}
+
+label {
+    display: grid;
+    gap: 6px;
+    font-weight: 700;
+}
+
+input,
+select {
+    padding: 12px;
+    border: 1px solid #bdc8d7;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+button {
+    padding: 12px;
+    border: 0;
+    border-radius: 6px;
+    background: #16785f;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.secondary-button {
+    background: #e8f3ef;
+    color: #0f513f;
+    border: 1px solid #b8d8cd;
+}
+
+.panel-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 16px;
+}
+
+.panel-title p {
+    color: #607080;
+    margin-bottom: 0;
+}
+
+.table-wrap {
+    max-height: 100%;
+    overflow: auto;
+    border: 1px solid #d7dee8;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e4e9f0;
+    text-align: left;
+}
+
+th {
+    background: #eef4f2;
+    color: #12312b;
+    position: sticky;
+    top: 0;
+}
+
+.empty-row {
+    color: #607080;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    body {
+        overflow: auto;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        overflow: visible;
+    }
+}

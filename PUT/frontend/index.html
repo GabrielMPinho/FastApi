@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUT Lab - FastAPI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <p class="eyebrow">PUT</p>
+            <h1>Substituicao completa</h1>
+            <p>Use esta tela para praticar atualizacao completa de um registro.</p>
+        </div>
+        <span class="badge">Full update</span>
+    </header>
+
+    <main>
+        <section class="panel">
+            <h2>Atualizar cliente</h2>
+            <form>
+                <label>
+                    Cliente ID
+                    <input type="number" name="cliente_id" placeholder="101">
+                </label>
+
+                <label>
+                    Nome
+                    <input type="text" name="nome" placeholder="Supermercado Central">
+                </label>
+
+                <label>
+                    Segmento
+                    <input type="text" name="segmento" placeholder="Varejo">
+                </label>
+
+                <label>
+                    Faturamento anual
+                    <input type="number" name="faturamento_anual" placeholder="1250000.00" step="0.01">
+                </label>
+
+                <button type="button">Substituir cliente</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>JSON esperado</h2>
+            <pre>{
+    "nome": "Supermercado Central",
+    "segmento": "Varejo",
+    "faturamento_anual": 1250000.00
+}</pre>
+        </section>
+
+        <section class="panel">
+            <h2>Resposta da API</h2>
+            <div class="empty-state">A resposta do PUT aparecerá aqui.</div>
+        </section>
+    </main>
+</body>
+</html>

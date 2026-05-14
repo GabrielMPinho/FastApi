@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATCH Lab - FastAPI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <p class="eyebrow">PATCH</p>
+            <h1>Atualizacao parcial</h1>
+            <p>Use esta tela para praticar alteracao de apenas alguns campos.</p>
+        </div>
+        <span class="badge">Partial update</span>
+    </header>
+
+    <main>
+        <section class="panel">
+            <h2>Atualizar score do lead</h2>
+            <form>
+                <label>
+                    Lead ID
+                    <input type="number" name="lead_id" placeholder="1042">
+                </label>
+
+                <label>
+                    Novo score
+                    <input type="number" name="score" placeholder="91.3" step="0.1">
+                </label>
+
+                <label>
+                    Status comercial
+                    <select name="status">
+                        <option>em_analise</option>
+                        <option>qualificado</option>
+                        <option>descartado</option>
+                    </select>
+                </label>
+
+                <button type="button">Atualizar parcialmente</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>JSON esperado</h2>
+            <pre>{
+    "score": 91.3,
+    "status": "qualificado"
+}</pre>
+        </section>
+
+        <section class="panel">
+            <h2>Resposta da API</h2>
+            <div class="empty-state">A resposta do PATCH aparecerá aqui.</div>
+        </section>
+    </main>
+</body>
+</html>
