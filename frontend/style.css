@@ -26,6 +26,10 @@ section {
     padding: 16px;
 }
 
+aside {
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+}
 button {
     width: 100%;
     margin-bottom: 10px;
@@ -60,5 +64,9 @@ pre {
 @media (max-width: 800px) {
     main {
         grid-template-columns: 1fr;
+    }
+
+    aside {
+        max-height: none;
     }
 }

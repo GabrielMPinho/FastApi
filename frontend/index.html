@@ -51,6 +51,14 @@
                 Buscar produto por id
                 <div class="endpoint">GET /produtos/{produto_id}</div>
             </button>
+            <button onclick="chamarApi('/vendas?periodo=maio&unidade=sp')">
+                Listar vendas
+                <div class="endpoint">GET /vendas?periodo=xx&unidade=yy</div>
+            </button>
+            <button onclick="chamarApi('/pedidos?status=pendente&unidade=sp')">
+                Listar pedidos
+                <div class="endpoint">GET /pedidos?status=xxx&unidade=yyy</div>
+            </button>
         </aside>
         
         <section>

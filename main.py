@@ -82,6 +82,7 @@ def finan_resumo():
 
 # ======================================= AULA 2 =======================================
 
+# 1. Variáveis na api; Path Parameter
 @app.get("/clientes/{cliente_id}")
 def buscar_cliente(cliente_id: int):
     return {
@@ -97,6 +98,24 @@ def buscar_produto(produto_id: int):
         "nome": "Produto Corporativo",
         "categoria": "Dados",
         "status": "ativo"
+    }
+#---------------------------------------
+
+# 2. Parâmetros; Query Parameter
+@app.get("/vendas") # /vendas?periodo=maio&unidade=sp
+def listar_vendas(periodo: str, unidade: str):
+    return {
+        "periodo": periodo,
+        "unidade": unidade,
+        "faturamento_total": 100000        
+    }
+
+@app.get("/pedidos")
+def listar_pedidos(status: str, unidade: str):
+    return {
+        "status": status,
+        "unidade": unidade,
+        "quantidade_pedidos": 42
     }
 
 
