@@ -59,6 +59,14 @@
                 Listar pedidos
                 <div class="endpoint">GET /pedidos?status=xxx&unidade=yyy</div>
             </button>
+            <button onclick="chamarApi('/clientes/101/pedidos?status=ativo')">
+                Pedidos do cliente
+                <div class="endpoint">GET /clientes/{cliente_id}/pedidos?status=xxx</div>
+            </button>
+            <button onclick="chamarApi('/vendedores/22/vendas?periodo=maio')">
+                Vendas do vendedor
+                <div class="endpoint">GET /vendedores/{vendedor_id}/vendas?periodo=xxx</div>
+            </button>
         </aside>
         
         <section>

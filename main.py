@@ -102,6 +102,7 @@ def buscar_produto(produto_id: int):
 #---------------------------------------
 
 # 2. Parâmetros; Query Parameter
+# A única diferença é que a gente chama a api com ?variavel=x&variavel2=y
 @app.get("/vendas") # /vendas?periodo=maio&unidade=sp
 def listar_vendas(periodo: str, unidade: str):
     return {
@@ -117,9 +118,24 @@ def listar_pedidos(status: str, unidade: str):
         "unidade": unidade,
         "quantidade_pedidos": 42
     }
+#---------------------------------------
+# 3. Combinando 1 e 2
+@app.get("/clientes/{cliente_id}/pedidos") # Não esta ligado com a de cima
+def pedidos_cliente(cliente_id: int, status: str): # http://localhost:8000/clientes/123/pedidos?status=ativo
+    return {
+        "cliente_id": cliente_id, 
+        "status": status,
+        "quantidade_pedidos": 5
+    }
 
-
-
+@app.get("/vendedores/{vendedor_id}/vendas")
+def vendas_vendedor(vendedor_id: int, periodo: str):
+    return {
+        "vendedor_id": vendedor_id,
+        "periodo": periodo,
+        "total_vendas": 87500.75,
+        "quantidade_pedidos": 64
+    }
 
 
 

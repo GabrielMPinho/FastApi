@@ -1,8 +1,17 @@
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
+    height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f4f6f8;
     color: #1f2937;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -16,6 +25,9 @@ main {
     grid-template-columns: 280px 1fr;
     gap: 20px;
     padding: 20px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
 }
 
 aside,
@@ -27,7 +39,7 @@ section {
 }
 
 aside {
-    max-height: calc(100vh - 160px);
+    min-height: 0;
     overflow-y: auto;
 }
 button {
@@ -47,7 +59,7 @@ button:hover {
 }
 
 pre {
-    min-height: 320px;
+    height: 320px;
     overflow: auto;
     background: #111827;
     color: #d1fae5;
