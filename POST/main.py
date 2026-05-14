@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from datetime import datetime
 
 #Ligando o back com o front
 app = FastAPI()
@@ -22,10 +23,17 @@ leads = [] # Guardar leads
 
 @app.post("/leads")
 def cadastro(lead: Lead):
-    leads.append(lead)
+    novo_lead = {
+        "nome": lead.nome,
+        "origem": lead.origem,
+        "score": lead.score,
+        "hora_cadastro": datetime.now().strftime("%d/%m/%Y %H:%M")
+    }
+    leads.append(novo_lead)
     return {
         "mensagem": "Lead recebido com sucesso",
-        "lead": lead
+        "lead": novo_lead,
+
     }
 
 @app.get("/leads")
@@ -33,7 +41,6 @@ def listar_leads():
     return {
         "total": len(leads),
         "leads": leads # Retorna cada lead em leads
-            
     }
 
 
