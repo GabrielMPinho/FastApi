@@ -4,11 +4,11 @@ from fastapi.staticfiles import StaticFiles # Entrega outros arquivos
 
 # ======================================= AULA 1 =======================================
 app = FastAPI()
-app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend") # Entrega arquivos css e js da pasta frontend. É possível acessar eles na url /frontend/nome_arquivo 
+app.mount("GET/frontend", StaticFiles(directory="frontend"), name="GET_frontend") # Entrega arquivos css e js da pasta frontend. É possível acessar eles na url /frontend/nome_arquivo 
 
 @app.get("/") # Na url padrão
 def home(): # A função home entrega o arquivo html com o path padrão
-    return FileResponse("./frontend/index.html")
+    return FileResponse("GET/frontend/index.html")
 
 @app.get("/status")
 def status():
@@ -171,37 +171,3 @@ def ranking_produtos(limite: int = 10):
         "criterio": "maior_margem",
         "quantidade_produtos_analisados": 250
     }
-# ======================================================================================
-
-# ======================================= AULA 3 =======================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
