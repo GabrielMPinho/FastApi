@@ -67,6 +67,26 @@
                 Vendas do vendedor
                 <div class="endpoint">GET /vendedores/{vendedor_id}/vendas?periodo=xxx</div>
             </button>
+            <button onclick="chamarApi('/clientes?status=ativo')">
+                Status do cliente (Status sendo opcional)
+                <div class="endpoint">GET /clientes?status=xxx</div>
+            </button>
+            <button onclick="chamarApi('/estoque')">
+                Listar estoque sem filtro
+                <div class="endpoint">GET /estoque</div>
+            </button>
+            <button onclick="chamarApi('/estoque?categoria=eletronicos')">
+                Listar estoque com filtro
+                <div class="endpoint">GET /estoque?categoria=xxx</div>
+            </button>
+            <button onclick="chamarApi('/ranking/produtos')">
+                Listar ranking de produtos sem limite definido
+                <div class="endpoint">GET /ranking/produtos</div>
+            </button>
+            <button onclick="chamarApi('/ranking/produtos?limite=5')">
+                Listar ranking de produtos com limite definido
+                <div class="endpoint">GET /ranking/produtos?limite=xxx</div>
+            </button>
         </aside>
         
         <section>

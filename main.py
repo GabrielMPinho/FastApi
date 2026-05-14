@@ -119,6 +119,7 @@ def listar_pedidos(status: str, unidade: str):
         "quantidade_pedidos": 42
     }
 #---------------------------------------
+
 # 3. Combinando 1 e 2
 @app.get("/clientes/{cliente_id}/pedidos") # Não esta ligado com a de cima
 def pedidos_cliente(cliente_id: int, status: str): # http://localhost:8000/clientes/123/pedidos?status=ativo
@@ -136,6 +137,42 @@ def vendas_vendedor(vendedor_id: int, periodo: str):
         "total_vendas": 87500.75,
         "quantidade_pedidos": 64
     }
+#---------------------------------------
+
+# 4. Query Parameter opcional
+@app.get("/clientes")
+def listar_clientes(status: str | None = None): # Recebe status ou nada. None = None significa que o valor padrão quando não envia nada é nada
+    return {
+        "status_filtrado": status,
+        "quantidade_clientes": 120
+    }
+
+@app.get("/estoque")
+def listar_estoque(categoria: str | None = None):
+    return {
+        "categoria_filtrada": categoria,
+        "quantidade_itens": 580,
+        "valor_total_estoque": 93250.40
+    }
+#---------------------------------------
+
+# 5. Query parameter opcional com valor padrão
+@app.get("/ranking/clientes")
+def ranking_clientes(limite: int = 10): #Valor padrão quando não enviar nada é 10
+    return {
+        "limite": limite,
+        "criterio": "maior_faturamento"
+    }
+
+@app.get("/ranking/produtos")
+def ranking_produtos(limite: int = 10):
+    return {
+        "limite": limite,
+        "criterio": "maior_margem",
+        "quantidade_produtos_analisados": 250
+    }
+
+
 
 
 
