@@ -43,8 +43,16 @@
                 Resumo Financeiro
                 <div class="endpoint">GET /financeiro/resumo</div>
             </button>
+            <button onclick="chamarApi('/clientes/101')">
+                Buscar cliente por id
+                <div class="endpoint">/clientes/{cliente_id}</div>
+            </button>
+            <button onclick="chamarApi('/produtos/101')">
+                Buscar produto por id
+                <div class="endpoint">GET /produtos/{produto_id}</div>
+            </button>
         </aside>
-
+        
         <section>
             <h2>Resposta da API</h2>
             <pre id="resultado">Clique em um endpoint para testar.</pre>

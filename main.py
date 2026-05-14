@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse # Entregar o html para o navegador
 from fastapi.staticfiles import StaticFiles # Entrega outros arquivos 
 
-
+# ======================================= AULA 1 =======================================
 app = FastAPI()
 app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend") # Entrega arquivos css e js da pasta frontend. É possível acessar eles na url /frontend/nome_arquivo 
 
@@ -78,9 +78,26 @@ def finan_resumo():
         "margem_percentual": 30.0, 
         "periodo": "Maio/2026"
     }
+# ======================================================================================
 
+# ======================================= AULA 2 =======================================
 
+@app.get("/clientes/{cliente_id}")
+def buscar_cliente(cliente_id: int):
+    return {
+        "cliente_id": cliente_id,
+        "nome": "Cliente Exemplo",
+        "status": "ativo"
+    }
 
+@app.get("/produtos/{produto_id}")
+def buscar_produto(produto_id: int):
+    return {
+        "produto_id": produto_id,
+        "nome": "Produto Corporativo",
+        "categoria": "Dados",
+        "status": "ativo"
+    }
 
 
 
