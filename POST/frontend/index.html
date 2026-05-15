@@ -10,62 +10,116 @@
     <header>
         <div>
             <p class="eyebrow">POST</p>
-            <h1>Cadastro de leads</h1>
-            <p>Use esta tela para praticar cadastro antes de ligar o formulário ao FastAPI.</p>
+            <h1>Cadastro via POST</h1>
+            <p>Use esta tela para praticar cadastros enviados para endpoints FastAPI.</p>
         </div>
         <span class="badge">Body JSON</span>
     </header>
 
     <main>
-        <section class="panel form-panel">
-            <h2>Novo lead</h2>
-            <form>
-                <label>
-                    Nome
-                    <input id="nome" type="text" name="nome" placeholder="Industria Beta" required>
-                </label>
+        <section class="workspace">
+            <div class="panel form-panel">
+                <h2>Novo lead</h2>
+                <form>
+                    <label>
+                        Nome
+                        <input id="nome" type="text" name="nome" placeholder="Industria Beta" required>
+                    </label>
 
-                <label>
-                    Origem
-                    <input id="origem" name="origem" placeholder="Linkedin">
-                </label>
+                    <label>
+                        Origem
+                        <input id="origem" name="origem" placeholder="Linkedin">
+                    </label>
 
-                <label>
-                    Score
-                    <input id="score" type="number" name="score" placeholder="87.5" step="0.1" required>
-                </label>
+                    <label>
+                        Score
+                        <input id="score" type="number" name="score" placeholder="87.5" step="0.1" required>
+                    </label>
 
-                <button type="button" id="cadastro">Cadastrar lead via API</button>
-            </form>
-        </section>
-
-        <section class="panel leads-panel">
-            <div class="panel-title">
-                <div>
-                    <h2>Leads cadastrados</h2>
-                </div>
-                <button id="atualizar" class="secondary-button" type="button">Atualizar lista</button>
+                    <button type="button" id="cadastro">Cadastrar lead via API</button>
+                </form>
             </div>
 
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Origem</th>
-                            <th>Score</th>
-                            <th>Cadastrado em</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leads-tabela">
-                        <tr>
-                            <td colspan="4" class="empty-row">Nenhum lead cadastrado ainda.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="panel">
+                <div class="panel-title">
+                    <div>
+                        <h2>Leads cadastrados</h2>
+                    </div>
+                    <button id="atualizar" class="secondary-button" type="button">Atualizar lista</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Origem</th>
+                                <th>Score</th>
+                                <th>Cadastrado em</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leads-tabela">
+                            <tr>
+                                <td colspan="4" class="empty-row">Nenhum lead cadastrado ainda.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="workspace">
+            <div class="panel form-panel">
+                <h2>Nova tarefa de automacao</h2>
+                <form>
+                    <label>
+                        Titulo
+                        <input id="tarefa-titulo" type="text" name="titulo" placeholder="Atualizar base comercial" required>
+                    </label>
+
+                    <label>
+                        Sistema
+                        <input id="tarefa-sistema" type="text" name="sistema" placeholder="Power BI">
+                    </label>
+
+                    <label>
+                        Prioridade
+                        <input id="tarefa-prioridade" type="number" name="prioridade" placeholder="1" min="1" step="1" required>
+                    </label>
+
+                    <button type="button" id="cadastrar-tarefa">Cadastrar tarefa via API</button>
+                </form>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">
+                    <div>
+                        <h2>Tarefas cadastradas</h2>
+                    </div>
+                    <button id="atualizar-tarefas" class="secondary-button" type="button">Atualizar lista</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Sistema</th>
+                                <th>Prioridade</th>
+                                <th>Criada em</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tarefas-tabela">
+                            <tr>
+                                <td colspan="4" class="empty-row">Nenhuma tarefa cadastrada ainda.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     </main>
+
     <script src="/frontend/script.js"></script>
 </body>
 </html>
