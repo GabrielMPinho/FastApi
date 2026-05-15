@@ -6,7 +6,7 @@ const origem_input = document.getElementById("origem");
 const score_input = document.getElementById("score");
 
 botao_atualizar.addEventListener('click', async () => {
-    const resposta = await fetch("/leads");
+    const resposta = await fetch("/leads"); // Chamar um gets
     const dados = await resposta.json();
     tabela.innerHTML = "";
     if (dados.leads.length === 0) {
@@ -28,10 +28,38 @@ botao_atualizar.addEventListener('click', async () => {
 botao_adicionar.addEventListener('click', async () => {
     const nome = nome_input.value;
     const origem = origem_input.value;
-    const score = score_input.value;
+    const score = Number(score_input.value);
+    
 
 
-    nome_input.innerHTML = "";
-    origem_input.innerHTML = "";
-    score_input.innerHTML = "";
+    const resposta = await fetch("/leads", { // Fetch para post
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ // O que eu quero mandar com stringfy
+            "nome": nome,
+            "origem": origem,
+            "score": score
+        })
+    });
+    
+    if (!resposta.ok){
+        const erro = await resposta.json();
+        console.log(erro);
+        alert(erro.detail || "Erro no cadastro");
+        return;
+    }
+
+
+    const dados = await resposta.json();
+    console.log(dados);
+
+
+    alert("Dados enviados com sucesso!");
+    
+
+    nome_input.value = "";
+    origem_input.value = "";
+    score_input.value = "";
 });
